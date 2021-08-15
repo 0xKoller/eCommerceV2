@@ -1,0 +1,29 @@
+.counterContainer {
+  display: flex;
+  flex-direction: row;
+  padding: 0.5vh;
+  border: 1px solid black;
+  border-radius: 1vh;
+  justify-content: space-around;
+}
+
+button {
+  width: 2rem;
+  border-radius: 100%;
+  border-color: transparent;
+}
+
+.decrease {
+  background-color: gray;
+  color: white;
+  &:hover {
+    color: red;
+  }
+}
+.increase {
+  background-color: green;
+  color: white;
+  &:hover {
+    color: red;
+  }
+}

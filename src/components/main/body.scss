@@ -1,0 +1,14 @@
+@import url("http://fonts.cdnfonts.com/css/union-gray");
+
+$font-title: "Union Gray", sans-serif;
+
+main {
+  margin-left: 0.5vh;
+  margin-right: 0.5vh;
+  padding: 0.5vh;
+}
+
+h1 {
+  font-family: $font-title;
+  font-size: 1.5rem;
+}
