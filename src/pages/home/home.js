@@ -1,7 +1,6 @@
 import { Col, Row } from "react-bootstrap";
-import FilterCategories from "./filter/filter";
-import ItemListContainer from "./items/ItemList/ItemListContainer";
-
+import FilterCategories from "../../components/shop/filter/filter";
+import ItemListContainer from "../../components/shop/items/ItemList/ItemListContainer";
 function Main() {
   return (
     <main>

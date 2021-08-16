@@ -1,7 +1,7 @@
 function Footer() {
   return (
     <footer>
-      <h5>Pie de pagina</h5>
+      <h3>Pie de pagina</h3>
     </footer>
   );
 }

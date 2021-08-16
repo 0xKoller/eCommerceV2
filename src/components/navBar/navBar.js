@@ -1,18 +1,26 @@
 import React from "react";
 import { Navbar, Container, Nav, NavDropdown } from "react-bootstrap";
 import Cart from "./cartWidget";
+import { NavLink } from "react-router-dom";
+import "./navBar.scss";
 
 function NavBar() {
   return (
     <header>
       <Navbar bg="light" expand="lg">
         <Container>
-          <Navbar.Brand href="#">Trost Shop</Navbar.Brand>
+          <NavLink to="/" className="link">
+            Trost Shop
+          </NavLink>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="me-auto">
-              <Nav.Link href="#home">Home</Nav.Link>
-              <Nav.Link href="#link">Ofertas</Nav.Link>
+              <NavLink to="/" className="link">
+                Home
+              </NavLink>
+              <NavLink to="*" className="link">
+                Ofertas
+              </NavLink>
               <NavDropdown title="Categorias" id="basic-nav-dropdown">
                 <NavDropdown.Item href="#action/3.1">
                   Accesorios
@@ -26,7 +34,9 @@ function NavBar() {
                 <NavDropdown.Divider></NavDropdown.Divider>
                 <NavDropdown.Item>Anime</NavDropdown.Item>
               </NavDropdown>
-              <Nav.Link>Nosotros</Nav.Link>
+              <NavLink to="/aboutUs" className="link">
+                Nosotros
+              </NavLink>
             </Nav>
           </Navbar.Collapse>
           <Cart />
