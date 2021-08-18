@@ -5,6 +5,7 @@ const productsMock = [
     description: "descripcion",
     price: 100,
     pictureUrl: "https://picsum.photos/200/300",
+    category: "Accesorios",
   },
   {
     id: 2,
@@ -12,6 +13,7 @@ const productsMock = [
     description: "descripcion",
     price: 999,
     pictureUrl: "https://picsum.photos/200/300",
+    category: "Accesorios",
   },
   {
     id: 3,
@@ -19,6 +21,23 @@ const productsMock = [
     description: "descripcion",
     price: 1,
     pictureUrl: "https://picsum.photos/200/300",
+    category: "Ropa",
+  },
+  {
+    id: 4,
+    title: "Ryuk",
+    description: "descripcion",
+    price: 15,
+    pictureUrl: "https://picsum.photos/200/300",
+    category: "Ropa",
+  },
+  {
+    id: 5,
+    title: "Sasuke",
+    description: "descripcion",
+    price: 10000,
+    pictureUrl: "https://picsum.photos/200/300",
+    category: "Coleccionable",
   },
 ];
 export default productsMock;

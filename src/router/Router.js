@@ -6,7 +6,6 @@ import Footer from "../components/footer/footer";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import AboutUs from "../pages/aboutUs/aboutUs";
 import NotFound from "../pages/notFound/notFound";
-
 const Router = () => {
   return (
     <BrowserRouter>

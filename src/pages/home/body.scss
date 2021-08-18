@@ -34,3 +34,9 @@ h1 {
   width: 100%;
   grid-template-columns: 1fr 3fr;
 }
+
+main {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
