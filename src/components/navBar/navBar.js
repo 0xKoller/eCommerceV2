@@ -1,17 +1,28 @@
 import React from "react";
-import { Navbar, Container, Nav, NavDropdown } from "react-bootstrap";
+import {
+  Navbar,
+  Container,
+  Nav,
+  NavDropdown,
+  NavbarBrand,
+  Image,
+} from "react-bootstrap";
 import Cart from "./cartWidget";
 import { NavLink } from "react-router-dom";
 import "./navBar.scss";
+import logo from "../../assets/wall-rose.png";
 
 function NavBar() {
   return (
     <header>
       <Navbar bg="light" expand="lg">
         <Container>
-          <NavLink to="/" className="link">
-            Trost Shop
-          </NavLink>
+          <NavbarBrand>
+            <Image src={logo} className="d-none d-sm-block" rounded />
+            <NavLink to="/" className="link">
+              Trost Shop
+            </NavLink>
+          </NavbarBrand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="me-auto">
@@ -22,17 +33,37 @@ function NavBar() {
                 Ofertas
               </NavLink>
               <NavDropdown title="Categorias" id="basic-nav-dropdown">
-                <NavDropdown.Item href="#action/3.1">
-                  Accesorios
+                <NavDropdown.Item>
+                  <NavLink to="*" className="link">
+                    Accesorios
+                  </NavLink>
                 </NavDropdown.Item>
-                <NavDropdown.Item href="#action/3.2">Remeras</NavDropdown.Item>
-                <NavDropdown.Item href="#action/3.3">
-                  Pantalones
+                <NavDropdown.Item>
+                  <NavLink to="*" className="link">
+                    Remeras
+                  </NavLink>
                 </NavDropdown.Item>
-                <NavDropdown.Item>Camperas</NavDropdown.Item>
-                <NavDropdown.Item>Hoodies</NavDropdown.Item>
+                <NavDropdown.Item>
+                  <NavLink to="*" className="link">
+                    Pantalones
+                  </NavLink>
+                </NavDropdown.Item>
+                <NavDropdown.Item>
+                  <NavLink to="*" className="link">
+                    Camperas
+                  </NavLink>
+                </NavDropdown.Item>
+                <NavDropdown.Item>
+                  <NavLink to="*" className="link">
+                    Hoodies
+                  </NavLink>
+                </NavDropdown.Item>
                 <NavDropdown.Divider></NavDropdown.Divider>
-                <NavDropdown.Item>Anime</NavDropdown.Item>
+                <NavDropdown.Item>
+                  <NavLink to="*" className="link">
+                    Anime
+                  </NavLink>
+                </NavDropdown.Item>
               </NavDropdown>
               <NavLink to="/aboutUs" className="link">
                 Nosotros

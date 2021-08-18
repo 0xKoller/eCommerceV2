@@ -1,6 +1,25 @@
 .link {
-  display: flex;
-  align-items: center;
   text-decoration: none;
+  margin: 0.5rem;
   color: black;
+  &:hover {
+    color: red;
+  }
+}
+
+#basic-nav-dropdown {
+  color: black;
+  &:hover {
+    color: red;
+  }
+}
+
+img {
+  width: 40px;
+  height: auto;
+}
+
+.navbar-brand {
+  display: flex;
+  flex-direction: row;
 }
