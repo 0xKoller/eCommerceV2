@@ -2,19 +2,35 @@
 
 $font-title: "Union Gray", sans-serif;
 
+#landingContainer {
+  position: relative;
+  text-align: left;
+}
+
+.bottom-left {
+  position: absolute;
+  bottom: 8px;
+  left: 16px;
+  color: white;
+  -webkit-text-stroke: 2px black;
+}
+
+#landingImg {
+  width: 100%;
+  height: 350px;
+}
+
 h1 {
   font-family: $font-title;
   font-size: 1.5rem;
 }
 
-#landing {
-  background-image: url("../../assets/bg-landing.webp");
-  background-size: 100% 100%;
-  background-repeat: no-repeat;
-  background-position: center;
-  object-fit: cover;
-  color: white;
-  padding: 0px;
-  margin: 0px;
+.welcome {
+  font-family: $font-title;
+}
+
+#gridShop {
+  display: grid;
   width: 100%;
+  grid-template-columns: 1fr 3fr;
 }

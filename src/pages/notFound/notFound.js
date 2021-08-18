@@ -1,5 +1,7 @@
+import "./notFound.scss";
+
 function NotFound() {
-  return <h1>No encontrado</h1>;
+  return <main>No encontrado</main>;
 }
 
 export default NotFound;

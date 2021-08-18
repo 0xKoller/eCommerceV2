@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { ItemList } from "./ItemList";
 import productsMock from "./ItemMock";
+import "./ItemListContainer.scss";
 
 function ItemListContainer() {
   const [listProducts, setListProducts] = useState([]);
@@ -16,11 +17,9 @@ function ItemListContainer() {
   }, []);
 
   return (
-    <>
-      <div>
-        <ItemList productos={listProducts} />
-      </div>
-    </>
+    <div id="grid">
+      <ItemList productos={listProducts} />
+    </div>
   );
 }
 
