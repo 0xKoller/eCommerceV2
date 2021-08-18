@@ -1,0 +1,27 @@
+footer {
+  display: flex;
+  flex-direction: row;
+  margin-top: 10px;
+}
+
+#socialMediaFooter {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+}
+
+#contactFooter {
+  text-align: center;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.socialLink {
+  text-decoration: none;
+  margin: 5px;
+  color: black;
+  &:hover {
+    color: red;
+  }
+}

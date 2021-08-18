@@ -1,5 +1,19 @@
-main {
+#notFound {
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
+}
+
+#LImg {
+  height: 400px;
+  width: auto;
+}
+
+#backHome {
+  background-color: black;
+  border-radius: 1vh;
+  padding: 5px;
+  text-decoration: none;
+  color: white;
 }
