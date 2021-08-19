@@ -1,3 +1,4 @@
+@import "../../../../../assets/colors";
 .itemDetailWrapper {
   min-height: 100vh;
   display: flex;
@@ -10,13 +11,38 @@
   margin: 10px auto 10px auto;
 }
 
+.itemDescription {
+  margin: 5px auto 5px auto;
+  padding: 5px;
+}
+
+.counterPriceBox {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.counterPriceContainer {
+  display: flex;
+  border-radius: 1vh;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  background-color: $background-hint-color;
+  width: 50%;
+}
+
 .itemPrice {
   margin: 0;
   font-size: x-large;
 }
 
-.counterPriceContainer {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
+.goBack {
+  background-color: $accents-faded-color;
+  border-radius: 1vh;
+  padding: 5px;
+  text-align: center;
+  width: 30%;
+  height: auto;
+  text-decoration: none;
+  color: white;
 }

@@ -18,7 +18,8 @@ button {
 .decrease {
   background-color: $accents-color;
   color: white;
-  margin: 5px;
+  margin: 10px;
+  border-radius: 5px;
   &:hover {
     color: $details-color;
     background-color: $accents-faded-color;
@@ -27,7 +28,8 @@ button {
 .increase {
   background-color: $highlights-color;
   color: white;
-  margin: 5px;
+  margin: 10px;
+  border-radius: 5px;
   &:hover {
     color: $details-color;
     background-color: $highlights-faded-color;

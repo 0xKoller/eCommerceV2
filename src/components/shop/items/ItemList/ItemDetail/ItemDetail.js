@@ -15,11 +15,15 @@ export const ItemDetail = ({ product }) => {
       />
       <h2 className="itemTitle">{product.title}</h2>
       <p className="itemDescription">{product.description}</p>
-      <div className="counterPriceContainer">
-        <p className="itemPrice">$ {product.price}</p>
-        <ItemCount stock={product.stock} initial={1} onAdd={onAdd} />
+      <div className="counterPriceBox">
+        <div className="counterPriceContainer">
+          <p className="itemPrice">$ {product.price}</p>
+          <ItemCount stock={product.stock} initial={1} onAdd={onAdd} />
+        </div>
       </div>
-      <Link to="/">Volver a la tienda!</Link>
+      <Link className="goBack" to="/">
+        Volver a la tienda!
+      </Link>
     </div>
   );
 };
