@@ -15,8 +15,8 @@ export const ItemDetail = ({ product }) => {
       />
       <h2 className="itemTitle">{product.title}</h2>
       <p className="itemDescription">{product.description}</p>
-      <div>
-        <span className="itemPrice">$ {product.price}</span>
+      <div className="counterPriceContainer">
+        <p className="itemPrice">$ {product.price}</p>
         <ItemCount stock={product.stock} initial={1} onAdd={onAdd} />
       </div>
       <Link to="/">Volver a la tienda!</Link>

@@ -2,10 +2,7 @@
 .counterContainer {
   display: flex;
   flex-direction: row;
-  padding: 0.5vh;
-  border: 1px solid black;
-  border-radius: 1vh;
-  justify-content: space-around;
+  justify-content: space-between;
 }
 
 button {
@@ -14,17 +11,25 @@ button {
   border-color: transparent;
 }
 
+.counterText {
+  margin: auto;
+}
+
 .decrease {
   background-color: $accents-color;
   color: white;
+  margin: 5px;
   &:hover {
     color: $details-color;
+    background-color: $accents-faded-color;
   }
 }
 .increase {
   background-color: $highlights-color;
   color: white;
+  margin: 5px;
   &:hover {
     color: $details-color;
+    background-color: $highlights-faded-color;
   }
 }

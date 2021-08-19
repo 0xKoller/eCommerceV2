@@ -17,19 +17,19 @@ function ItemCount({ stock, initial, onAdd }) {
   }
 
   return (
-    <div className="counter">
+    <>
       <div className="counterContainer">
         <button className="decrease" onClick={decrease}>
           {" "}
           -{" "}
         </button>
-        <div className="counterText">{counter}</div>
+        <p className="counterText">{counter}</p>
         <button className="increase" onClick={increase}>
           {" "}
           +{" "}
         </button>
       </div>
-    </div>
+    </>
   );
 }
 
