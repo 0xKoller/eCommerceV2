@@ -1,6 +1,6 @@
 const productsMock = [
   {
-    id: 1,
+    id: "1",
     title: "Eren",
     description: "descripcion",
     price: 100,
@@ -8,7 +8,7 @@ const productsMock = [
     category: "Accesorios",
   },
   {
-    id: 2,
+    id: "2",
     title: "Deku",
     description: "descripcion",
     price: 999,
@@ -16,28 +16,12 @@ const productsMock = [
     category: "Accesorios",
   },
   {
-    id: 3,
+    id: "3",
     title: "Light",
     description: "descripcion",
     price: 1,
     pictureUrl: "https://picsum.photos/200/300",
     category: "Ropa",
-  },
-  {
-    id: 4,
-    title: "Ryuk",
-    description: "descripcion",
-    price: 15,
-    pictureUrl: "https://picsum.photos/200/300",
-    category: "Ropa",
-  },
-  {
-    id: 5,
-    title: "Sasuke",
-    description: "descripcion",
-    price: 10000,
-    pictureUrl: "https://picsum.photos/200/300",
-    category: "Coleccionable",
   },
 ];
 export default productsMock;

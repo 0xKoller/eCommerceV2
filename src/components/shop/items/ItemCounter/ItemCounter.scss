@@ -1,3 +1,4 @@
+@import "../../../../assets/colors";
 .counterContainer {
   display: flex;
   flex-direction: row;
@@ -9,21 +10,21 @@
 
 button {
   width: 2rem;
-  border-radius: 100%;
+  height: 2rem;
   border-color: transparent;
 }
 
 .decrease {
-  background-color: gray;
+  background-color: $accents-color;
   color: white;
   &:hover {
-    color: red;
+    color: $details-color;
   }
 }
 .increase {
-  background-color: green;
+  background-color: $highlights-color;
   color: white;
   &:hover {
-    color: red;
+    color: $details-color;
   }
 }

@@ -2,10 +2,12 @@ import Item from "./Item";
 
 export const ItemList = ({ productos }) => {
   return (
-    <>
-      {productos.map((item) => (
-        <Item key={item.id} producto={item} />
-      ))}
-    </>
+    <div className="productListWrapper">
+      <div className="productList">
+        {productos.map((item) => (
+          <Item key={item.id} producto={item} />
+        ))}
+      </div>
+    </div>
   );
 };
