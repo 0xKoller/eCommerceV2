@@ -21,8 +21,7 @@ button {
   margin: 10px;
   border-radius: 5px;
   &:hover {
-    color: $details-color;
-    background-color: $accents-faded-color;
+    background-color: $details-faded-color;
   }
 }
 .increase {
@@ -31,7 +30,6 @@ button {
   margin: 10px;
   border-radius: 5px;
   &:hover {
-    color: $details-color;
     background-color: $highlights-faded-color;
   }
 }

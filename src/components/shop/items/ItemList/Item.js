@@ -5,8 +5,12 @@ import "./Item.scss";
 export const Item = ({ producto }) => {
   return (
     <>
-      <Link to={`/products/${producto.id}`}>
-        <Card style={{ width: "20rem" }}>
+      <Link
+        style={{ textDecoration: "none", color: "black" }}
+        to={`/products/${producto.id}`}
+        className="productLink"
+      >
+        <Card style={{ width: "16rem" }}>
           <Card.Img src={producto.pictureUrl} alt="foto" />
           <Card.Body>
             <Card.Title>{producto.title}</Card.Title>

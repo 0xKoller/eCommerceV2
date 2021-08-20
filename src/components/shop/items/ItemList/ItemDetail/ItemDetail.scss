@@ -11,6 +11,13 @@
   margin: 10px auto 10px auto;
 }
 
+.itemProps {
+  background-color: $background-hint-color;
+  border-radius: 1vh;
+  padding: 5px;
+  margin: 5px;
+}
+
 .itemDescription {
   margin: 5px auto 5px auto;
   padding: 5px;
@@ -27,7 +34,8 @@
   flex-direction: row;
   justify-content: space-around;
   align-items: center;
-  background-color: $background-hint-color;
+  color: white;
+  background-color: $accents-faded-color;
   width: 50%;
 }
 
@@ -37,12 +45,16 @@
 }
 
 .goBack {
-  background-color: $accents-faded-color;
+  background-color: $highlights-color;
   border-radius: 1vh;
   padding: 5px;
+  margin: auto;
   text-align: center;
   width: 30%;
   height: auto;
   text-decoration: none;
   color: white;
+  &:hover {
+    color: $accents-color;
+  }
 }
