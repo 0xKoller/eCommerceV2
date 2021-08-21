@@ -1,11 +1,22 @@
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import ItemCount from "../../ItemCounter/ItemCounter";
 import "./ItemDetail.scss";
 
 export const ItemDetail = ({ product }) => {
+  const [qty, setQty] = useState(0);
+  const [finisher, setFinisher] = useState(false);
+
   const onAdd = (amount) => {
-    alert(`Agregaste ${amount} al carrito`);
+    setQty(amount);
   };
+
+  useEffect(() => {
+    if (qty !== 0) {
+      setFinisher(true);
+    }
+  }, [qty]);
+
   return (
     <div className="itemDetailWrapper">
       <img
@@ -22,8 +33,18 @@ export const ItemDetail = ({ product }) => {
             <ItemCount stock={product.stock} initial={1} onAdd={onAdd} />
           </div>
         </div>
+        {finisher ? (
+          <Link
+            className="finishShopping"
+            onClick={() => {
+              setQty(0);
+            }}
+          >
+            Ir al carrito!
+          </Link>
+        ) : null}
       </div>
-      <Link className="goBack" to="/">
+      <Link className="goBack" to="/" onClick={() => setQty(0)}>
         Volver a la tienda!
       </Link>
     </div>

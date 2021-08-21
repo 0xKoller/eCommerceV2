@@ -18,7 +18,6 @@ export const ItemDetailContainer = () => {
     getItem
       .then((pass) =>
         pass.forEach((element) => {
-          console.log(element);
           if (element.id === id) {
             setProduct(element);
           }
