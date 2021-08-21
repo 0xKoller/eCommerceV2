@@ -19,7 +19,6 @@ const Router = () => {
         <Route path="/category/:id" component={ItemListContainer} />
         <Route path="/products/:id" component={ItemDetailContainer} />
         <Route path="/cart" component={Cart} />
-
         <Route path="*" component={NotFound} />
       </Switch>
       <Footer />
