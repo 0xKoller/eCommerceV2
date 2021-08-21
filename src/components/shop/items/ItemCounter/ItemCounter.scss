@@ -1,6 +1,11 @@
 @import "../../../../assets/colors";
 .counterContainer {
   display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.buttons {
+  display: flex;
   flex-direction: row;
   justify-content: space-between;
 }
@@ -31,5 +36,13 @@ button {
   border-radius: 5px;
   &:hover {
     background-color: $highlights-faded-color;
+  }
+}
+
+.finishShopping {
+  color: white;
+  text-decoration: none;
+  &:hover {
+    color: white;
   }
 }

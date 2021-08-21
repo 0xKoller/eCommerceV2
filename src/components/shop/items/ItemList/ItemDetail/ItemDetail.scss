@@ -9,6 +9,7 @@
 .itemImg {
   width: 300px;
   margin: 10px auto 10px auto;
+  border-radius: 1vh;
 }
 
 .itemProps {
@@ -36,7 +37,7 @@
   align-items: center;
   color: white;
   background-color: $accents-faded-color;
-  width: 50%;
+  width: 70%;
 }
 
 .itemPrice {
@@ -45,7 +46,7 @@
 }
 
 .goBack {
-  background-color: $highlights-color;
+  background-color: $details-color;
   border-radius: 1vh;
   padding: 5px;
   margin: auto;
@@ -55,6 +56,22 @@
   text-decoration: none;
   color: white;
   &:hover {
-    color: $accents-color;
+    color: $accents-faded-color;
+  }
+}
+
+.goCart {
+  color: black;
+  text-decoration: none;
+  border-radius: 1vh;
+  padding-left: 3vh;
+  padding-right: 3vh;
+  padding-top: 5vh;
+  padding-bottom: 5vh;
+  margin: 10px auto 10px auto;
+  text-align: center;
+  background-color: $highlights-color;
+  &:hover {
+    color: white;
   }
 }

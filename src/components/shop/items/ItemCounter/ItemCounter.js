@@ -32,7 +32,7 @@ function ItemCount({ stock, initial, onAdd }) {
           </button>
         </div>
         <Link className="finishShopping" onClick={() => onAdd(counter)}>
-          Añadir al carrito!
+          ¡Añadir al carrito 🛒!
         </Link>
       </div>
     </>

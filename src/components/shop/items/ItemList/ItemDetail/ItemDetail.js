@@ -30,21 +30,23 @@ export const ItemDetail = ({ product }) => {
         <div className="counterPriceBox">
           <div className="counterPriceContainer">
             <p className="itemPrice">$ {product.price}</p>
-            <ItemCount stock={product.stock} initial={1} onAdd={onAdd} />
+            <ItemCount stock={product.stock} initial={0} onAdd={onAdd} />
           </div>
         </div>
-        {finisher ? (
-          <Link
-            className="finishShopping"
-            onClick={() => {
-              setQty(0);
-            }}
-          >
-            Ir al carrito!
-          </Link>
-        ) : null}
       </div>
-      <Link className="goBack" to="/" onClick={() => setQty(0)}>
+
+      {finisher ? (
+        <Link
+          className="goCart"
+          to="/cart"
+          onClick={() => {
+            setQty(0);
+          }}
+        >
+          ¡Ir al carrito 🛒!
+        </Link>
+      ) : null}
+      <Link className="goBack" to="/cart" onClick={() => setQty(0)}>
         Volver a la tienda!
       </Link>
     </div>
