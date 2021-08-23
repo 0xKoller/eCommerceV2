@@ -24,7 +24,6 @@ function ItemListContainer() {
 
   return (
     <div id="grid">
-      {console.log(listProducts)}
       {isLoading ? <div>Cargando</div> : <ItemList productos={listProducts} />}
     </div>
   );
