@@ -1,12 +1,13 @@
 import { useContext } from "react";
-import { Button } from "react-bootstrap";
 import { CartContext } from "../../context/cartContext";
+import trash from "../../assets/trash.png";
 import "./cart.scss";
 
 export const Cart = () => {
   const { cart, removeProduct } = useContext(CartContext);
 
   const calculatePrice = (price, qty) => {
+    console.log(price * qty);
     return price * qty;
   };
 
@@ -20,12 +21,15 @@ export const Cart = () => {
             <h4 className="cartProductPrice">
               ${calculatePrice(product.price, product.qty)}
             </h4>
-            <Button
-              onClick={() => removeProduct(product)}
-              className="cartProductDelete"
-            >
-              XXXXX
-            </Button>
+            <img
+              className="trashCan"
+              src={trash}
+              alt="#"
+              onClick={() => {
+                removeProduct(product);
+                console.log(product);
+              }}
+            />
           </div>
         ))
       ) : (
