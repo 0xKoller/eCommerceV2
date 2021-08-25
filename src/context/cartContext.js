@@ -6,12 +6,12 @@ export function CartProvider({ children }) {
   const [cart, setCart] = useState([]);
 
   const addProduct = (id, name, price, qty) => {
-    const existingIndex = cart.findIndex((item) => item.id === id);
+    const isInCartPosition = cart.findIndex((item) => item.id === id);
 
-    if (existingIndex >= 0) {
-      cart[existingIndex] = {
-        ...cart[existingIndex],
-        qty: cart[existingIndex].qty + qty,
+    if (isInCartPosition >= 0) {
+      cart[isInCartPosition] = {
+        ...cart[isInCartPosition],
+        qty: cart[isInCartPosition].qty + qty,
       };
     } else {
       setCart([
@@ -25,7 +25,8 @@ export function CartProvider({ children }) {
       ]);
     }
   };
-  const removeProduct = (itemInCart) => {
+
+  const removeProduct = () => {
     setCart([]);
   };
   return (

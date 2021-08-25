@@ -2,12 +2,14 @@ import { useContext } from "react";
 import { CartContext } from "../../context/cartContext";
 import trash from "../../assets/trash.png";
 import "./cart.scss";
+import sad from "../../assets/not-found.png";
+
+import happy from "../../assets/deku.png";
 
 export const Cart = () => {
   const { cart, removeProduct } = useContext(CartContext);
 
   const calculatePrice = (price, qty) => {
-    console.log(price * qty);
     return price * qty;
   };
 
@@ -33,7 +35,10 @@ export const Cart = () => {
           </div>
         ))
       ) : (
-        <h1>No hay items en el carrito</h1>
+        <div className="noItems">
+          <img src={sad} alt="#" className="noItemsImg" />
+          <h1>No hay items en el carrito</h1>
+        </div>
       )}
     </div>
   );

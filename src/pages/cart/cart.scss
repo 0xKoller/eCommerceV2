@@ -1,7 +1,23 @@
+.cartPanel {
+  display: block;
+}
+
+.noItems {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.noItemsImg {
+  height: 400px;
+  width: auto;
+}
+
 .cartContainer {
   display: flex;
   justify-content: space-around;
-  align-items: baseline;
+  align-items: center;
 }
 .trashCan {
   margin: 20px 0;
