@@ -1,7 +1,5 @@
-.cartPanel {
-  display: flex;
-  align-items: center;
-}
 .cartContainer {
-  margin: auto;
+  display: flex;
+  justify-content: space-around;
+  align-items: baseline;
 }

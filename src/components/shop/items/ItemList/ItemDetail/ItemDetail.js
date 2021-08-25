@@ -1,11 +1,17 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { CartContext } from "../../../../../context/cartContext";
 import ItemCount from "../../ItemCounter/ItemCounter";
 import "./ItemDetail.scss";
 
 export const ItemDetail = ({ product }) => {
   const [qty, setQty] = useState(0);
   const [finisher, setFinisher] = useState(false);
+  const { addProduct } = useContext(CartContext);
+
+  const finishShopping = () => {
+    addProduct(product.id, product.title, product.price, qty);
+  };
 
   const onAdd = (amount) => {
     setQty(amount);
@@ -40,7 +46,7 @@ export const ItemDetail = ({ product }) => {
           className="goCart"
           to="/cart"
           onClick={() => {
-            setQty(0);
+            finishShopping();
           }}
         >
           ¡Ir al carrito 🛒!

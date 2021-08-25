@@ -7,21 +7,24 @@ import AboutUs from "../pages/aboutUs/aboutUs";
 import NotFound from "../pages/notFound/notFound";
 import ItemListContainer from "../components/shop/items/ItemList/ItemListContainer";
 import { ItemDetailContainer } from "../components/shop/items/ItemList/ItemDetail/ItemDetailContainer";
-import Cart from "../pages/cart/cart";
+import { Cart } from "../pages/cart/cart";
+import { CartProvider } from "../context/cartContext";
 
 const Router = () => {
   return (
     <BrowserRouter>
-      <NavBar />
-      <Switch>
-        <Route exact path="/" component={Main} />
-        <Route path="/aboutUs" component={AboutUs} />
-        <Route path="/category/:id" component={ItemListContainer} />
-        <Route path="/products/:id" component={ItemDetailContainer} />
-        <Route path="/cart" component={Cart} />
-        <Route path="*" component={NotFound} />
-      </Switch>
-      <Footer />
+      <CartProvider>
+        <NavBar />
+        <Switch>
+          <Route exact path="/" component={Main} />
+          <Route path="/aboutUs" component={AboutUs} />
+          <Route path="/category/:id" component={ItemListContainer} />
+          <Route path="/products/:id" component={ItemDetailContainer} />
+          <Route path="/cart" component={Cart} />
+          <Route path="*" component={NotFound} />
+        </Switch>
+        <Footer />
+      </CartProvider>
     </BrowserRouter>
   );
 };
