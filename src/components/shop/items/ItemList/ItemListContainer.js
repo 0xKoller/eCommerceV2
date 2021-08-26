@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { ItemList } from "./ItemList";
 import productsMock from "./ItemMock";
 import "./ItemListContainer.scss";
+import { getFirestore } from "../../../../firebase";
 
 function ItemListContainer() {
   const [listProducts, setListProducts] = useState([]);
@@ -14,6 +15,8 @@ function ItemListContainer() {
   });
 
   useEffect(() => {
+    const db = getFirestore();
+    const itemCollection = db.collection("items");
     setIsLoading(true);
     getItems
       .then((pass) => setListProducts(pass))
