@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { ItemList } from "./ItemList";
 import productsMock from "./ItemMock";
-import "./ItemListContainer.scss";
+import Loading from "../../../loading/loading";
 
 function ItemListContainer() {
   const [listProducts, setListProducts] = useState([]);
@@ -10,7 +10,7 @@ function ItemListContainer() {
   const getItems = new Promise((pass, deni) => {
     setTimeout(function () {
       pass(productsMock);
-    }, 2000);
+    }, 4000);
   });
 
   useEffect(() => {
@@ -22,11 +22,7 @@ function ItemListContainer() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  return (
-    <div id="grid">
-      {isLoading ? <div>Cargando</div> : <ItemList productos={listProducts} />}
-    </div>
-  );
+  return <>{isLoading ? <Loading /> : <ItemList productos={listProducts} />}</>;
 }
 
 export default ItemListContainer;

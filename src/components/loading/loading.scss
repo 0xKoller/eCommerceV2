@@ -1,0 +1,30 @@
+.loader {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 20px auto 20px auto;
+}
+
+.loaderImg {
+  width: 100%;
+  max-width: 500px;
+  height: auto;
+  border-radius: 20px;
+  margin-bottom: 10px;
+  animation: 2s ease infinite pulse;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+
+  25% {
+    transform: scale(1.05);
+  }
+
+  50% {
+    transform: scale(1);
+  }
+}

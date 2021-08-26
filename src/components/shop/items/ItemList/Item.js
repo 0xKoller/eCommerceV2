@@ -1,4 +1,3 @@
-import { Card } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import "./Item.scss";
 
@@ -10,13 +9,13 @@ export const Item = ({ producto }) => {
         to={`/products/${producto.id}`}
         className="productLink"
       >
-        <Card style={{ width: "16rem" }}>
-          <Card.Img src={producto.pictureUrl} alt="foto" />
-          <Card.Body>
-            <Card.Title>{producto.title}</Card.Title>
-            <Card.Text>{producto.description}</Card.Text>
-          </Card.Body>
-        </Card>
+        <div className="card">
+          <img className="cardImg" src={producto.pictureUrl} alt="foto" />
+          <div className="cardInfo">
+            <h5>{producto.title}</h5>
+            <p>{producto.description}</p>
+          </div>
+        </div>
       </Link>
     </>
   );

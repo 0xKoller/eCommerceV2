@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { ItemDetail } from "./ItemDetail";
 import productsMock from "../ItemMock";
 import { useParams } from "react-router-dom";
+import Loading from "../../../../loading/loading";
 
 export const ItemDetailContainer = () => {
   const { id } = useParams();
@@ -29,8 +30,6 @@ export const ItemDetailContainer = () => {
   }, []);
 
   return (
-    <div>
-      {isLoading ? <div>Cargando</div> : <ItemDetail product={product} />}
-    </div>
+    <div>{isLoading ? <Loading /> : <ItemDetail product={product} />}</div>
   );
 };

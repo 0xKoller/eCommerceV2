@@ -4,8 +4,6 @@ import trash from "../../assets/trash.png";
 import "./cart.scss";
 import sad from "../../assets/not-found.png";
 
-import happy from "../../assets/deku.png";
-
 export const Cart = () => {
   const { cart, removeProduct } = useContext(CartContext);
 

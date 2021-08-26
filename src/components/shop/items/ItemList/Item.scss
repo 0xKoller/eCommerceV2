@@ -1,4 +1,21 @@
-.card {
-  margin: 5px 1px 5px 1px;
-  padding: 5px;
+div.card {
+  margin: 10px 5px 10px 5px;
+  display: flex;
+  flex-direction: row;
+  img {
+    min-width: 150px;
+    min-height: 225px;
+    margin: auto;
+    margin-right: 10px;
+  }
+  .cardInfo {
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+  }
+  p {
+    max-height: 150px;
+    overflow: hidden;
+    margin: 0;
+  }
 }
