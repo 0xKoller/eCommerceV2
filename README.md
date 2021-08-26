@@ -25,14 +25,14 @@ Si ves algun error, intenta solucionarlo con el sigueinte comando, ya que tal ve
 - [x] Styling en todas las paginas
 - [x] Paginas de NotFound y AboutUs
 - [x] Detalles de producto
+- [x] Paleta de colores
+- [x] Loading screens
+- [x] Contenedores Fluid
 
 ## En progreso
-- [ ] Paleta de colores
 - [ ] Categorias de producto
 - [ ] Animaciones
-- [ ] Loading screens
 - [ ] Filtro
-- [ ] Contenedores Fluid
 
 ## Contacto
 <p  align="center">
