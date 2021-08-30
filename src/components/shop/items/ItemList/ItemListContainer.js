@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { ItemList } from "./ItemList";
 import productsMock from "./ItemMock";
 import "./ItemListContainer.scss";
-import { getFirestore } from "../../../../firebase";
+import { getFirestore } from "../../../../fireBase/index";
 
 function ItemListContainer() {
   const [listProducts, setListProducts] = useState([]);
@@ -15,8 +15,16 @@ function ItemListContainer() {
   });
 
   useEffect(() => {
+    let data = [];
     const db = getFirestore();
-    const itemCollection = db.collection("items");
+    const ItemCollection = db.collection("items");
+    ItemCollection.get()
+      .then((querySnapshot) => {
+        data = querySnapshot.docs.map((doc) => doc.data());
+      })
+      .catch((error) => console.error(error));
+
+    console.log(data);
     setIsLoading(true);
     getItems
       .then((pass) => setListProducts(pass))

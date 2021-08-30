@@ -3,12 +3,8 @@ import ItemListContainer from "../../components/shop/items/ItemList/ItemListCont
 import "./body.scss";
 import test from "../../assets/test.png";
 import { Container } from "react-bootstrap";
-import { useContext } from "react";
-import { CartContext } from "../../context/cartContext";
 
 function Main() {
-  const cart = useContext(CartContext);
-  console.log("cart", cart);
   return (
     <main>
       <div id="landingContainer">
