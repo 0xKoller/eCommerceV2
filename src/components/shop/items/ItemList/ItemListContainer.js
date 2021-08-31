@@ -13,8 +13,6 @@ function ItemListContainer() {
     setIsLoading(true);
     const db = getFirestore();
     const itemsCollection = db.collection("items");
-
-    console.log(itemsCollection);
     itemsCollection
       .get()
       .then((querySnapshot) => {
