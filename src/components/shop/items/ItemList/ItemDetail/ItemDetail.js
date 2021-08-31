@@ -25,6 +25,7 @@ export const ItemDetail = ({ product }) => {
 
   return (
     <div className="itemDetailWrapper">
+      {console.log(product)}
       <img
         src={product.pictureUrl}
         alt="Imagen del Producto"
@@ -52,7 +53,7 @@ export const ItemDetail = ({ product }) => {
           ¡Ir al carrito 🛒!
         </Link>
       ) : null}
-      <Link className="goBack" to="/cart" onClick={() => setQty(0)}>
+      <Link className="goBack" to="/" onClick={() => setQty(0)}>
         Volver a la tienda!
       </Link>
     </div>

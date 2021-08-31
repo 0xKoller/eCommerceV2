@@ -5,6 +5,7 @@ import "./Item.scss";
 export const Item = ({ producto }) => {
   return (
     <>
+      {console.log(producto)}
       <Link
         style={{ textDecoration: "none", color: "black" }}
         to={`/products/${producto.id}`}

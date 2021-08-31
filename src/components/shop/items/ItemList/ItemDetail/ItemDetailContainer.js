@@ -1,31 +1,28 @@
 import { useEffect, useState } from "react";
 import { ItemDetail } from "./ItemDetail";
-import productsMock from "../ItemMock";
 import { useParams } from "react-router-dom";
+import { getFirestore } from "../../../../../fireBase";
 
 export const ItemDetailContainer = () => {
   const { id } = useParams();
-  const [product, setProduct] = useState({});
+  const [product, setProducts] = useState({});
   const [isLoading, setIsLoading] = useState(false);
 
-  const getItem = new Promise((pass, deni) => {
-    setTimeout(function () {
-      pass(productsMock);
-    }, 2000);
-  });
   useEffect(() => {
     setIsLoading(true);
-    getItem
-      .then((pass) =>
-        pass.forEach((element) => {
-          if (element.id === id) {
-            setProduct(element);
-          }
-        })
-      )
-      .catch((deni) => console.log(deni))
-      .finally(() => setIsLoading(false));
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+    const db = getFirestore();
+    const itemsCollection = db.collection("items");
+    const element = itemsCollection.where("id", "==", { id });
+    element
+      .get()
+      .then((querySnapshot) => {
+        if (querySnapshot.size === 0) {
+          console.log("No existe el producto");
+        }
+        setProducts(querySnapshot.docs.map((doc) => doc.data()));
+      })
+      .catch((error) => console.log(error))
+      .finally(setIsLoading(false));
   }, []);
 
   return (
