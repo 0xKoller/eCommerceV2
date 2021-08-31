@@ -25,6 +25,7 @@ export const ItemDetail = ({ product }) => {
 
   return (
     <div className="itemDetailWrapper">
+      {console.log(product)}
       <img
         src={product.pictureUrl}
         alt="Imagen del Producto"

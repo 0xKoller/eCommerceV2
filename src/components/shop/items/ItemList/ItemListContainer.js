@@ -1,28 +1,36 @@
 import { useEffect, useState } from "react";
 import { ItemList } from "./ItemList";
-import productsMock from "./ItemMock";
 import Loading from "../../../loading/loading";
+import { getFirestore } from "../../../../fireBase/index";
 
 function ItemListContainer() {
-  const [listProducts, setListProducts] = useState([]);
+  const [products, setProducts] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
 
-  const getItems = new Promise((pass, deni) => {
-    setTimeout(function () {
-      pass(productsMock);
-    }, 4000);
-  });
+  const [getIsEmpty, setGetIsEmpty] = useState(false);
 
   useEffect(() => {
     setIsLoading(true);
-    getItems
-      .then((pass) => setListProducts(pass))
-      .catch((deni) => console.log(deni))
-      .finally(() => setIsLoading(false));
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+    const db = getFirestore();
+    const itemsCollection = db.collection("items");
 
-  return <>{isLoading ? <Loading /> : <ItemList productos={listProducts} />}</>;
+    console.log(itemsCollection);
+    itemsCollection
+      .get()
+      .then((querySnapshot) => {
+        if (querySnapshot.size === 0) {
+          setGetIsEmpty(true);
+        }
+        setProducts(
+          querySnapshot.docs.map((doc) => {
+            return { id: doc.id, ...doc.data() };
+          })
+        );
+      })
+      .catch((err) => alert(err))
+      .finally(() => setIsLoading(false));
+  }, []);
+  return <>{isLoading ? <Loading /> : <ItemList productos={products} />}</>;
 }
 
 export default ItemListContainer;
