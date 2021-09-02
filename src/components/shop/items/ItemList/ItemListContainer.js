@@ -7,8 +7,6 @@ function ItemListContainer() {
   const [products, setProducts] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
 
-  const [getIsEmpty, setGetIsEmpty] = useState(false);
-
   useEffect(() => {
     setIsLoading(true);
     const db = getFirestore();
@@ -17,7 +15,7 @@ function ItemListContainer() {
       .get()
       .then((querySnapshot) => {
         if (querySnapshot.size === 0) {
-          setGetIsEmpty(true);
+          console.log("No hay productos!");
         }
         setProducts(
           querySnapshot.docs.map((doc) => {

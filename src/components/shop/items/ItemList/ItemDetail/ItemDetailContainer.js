@@ -3,36 +3,26 @@ import { ItemDetail } from "./ItemDetail";
 import { useParams } from "react-router-dom";
 import Loading from "../../../../loading/loading";
 import { getFirestore } from "../../../../../fireBase";
-
 export const ItemDetailContainer = () => {
-  const { id } = useParams();
-  const [product, setProducts] = useState({});
+  // const { itemId } = useParams();
   const [isLoading, setIsLoading] = useState(false);
+  const [product, setProduct] = useState([]);
 
   useEffect(() => {
     setIsLoading(true);
     const db = getFirestore();
-    const itemsCollection = db.collection("items");
-    console.log(itemsCollection);
-    const element = itemsCollection.where("id", "==", { id });
-    element
+    const items = db.collection("items");
+    const consulta = items.where("id", "==", "bgckbL4DPuvbkIQJ6wF5");
+    consulta
       .get()
-      .then((querySnapshot) => {
-        console.log(querySnapshot.size);
-        if (querySnapshot.size === 0) {
-          console.log("No existe el producto");
-        }
-
-        setProducts(
-          querySnapshot.docs.map((doc) => {
-            return { id: doc.id, ...doc.data() };
-          })
-        );
+      .then((products) => {
+        products.forEach((doc) => {
+          let data = doc.data();
+          console.log(data);
+        });
       })
-      .catch((error) => console.log(error))
       .finally(setIsLoading(false));
   }, []);
-
   return (
     <div>{isLoading ? <Loading /> : <ItemDetail product={product} />}</div>
   );
