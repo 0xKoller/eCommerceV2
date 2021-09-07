@@ -9,6 +9,7 @@ import ItemListContainer from "../components/shop/items/ItemList/ItemListContain
 import { ItemDetailContainer } from "../components/shop/items/ItemList/ItemDetail/ItemDetailContainer";
 import { Cart } from "../pages/cart/cart";
 import { CartProvider } from "../context/cartContext";
+import { BuyerForm } from "../pages/buyerform/buyerform";
 
 const Router = () => {
   return (
@@ -21,6 +22,7 @@ const Router = () => {
           <Route path="/category/:id" component={ItemListContainer} />
           <Route path="/products/:id" component={ItemDetailContainer} />
           <Route path="/cart" component={Cart} />
+          <Route path="/shopform" component={BuyerForm} />
           <Route path="*" component={NotFound} />
         </Switch>
         <Footer />

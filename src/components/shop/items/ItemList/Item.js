@@ -10,7 +10,7 @@ export const Item = ({ producto }) => {
         className="productLink"
       >
         <div className="card">
-          <img className="cardImg" src={producto.pictureUrl} alt="foto" />
+          <img className="cardImg" src={producto.image} alt="foto" />
           <div className="cardInfo">
             <h5>{producto.title}</h5>
             <p>{producto.description}</p>
