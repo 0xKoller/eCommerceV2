@@ -10,6 +10,7 @@ import { ItemDetailContainer } from "../components/shop/items/ItemList/ItemDetai
 import { Cart } from "../pages/cart/cart";
 import { CartProvider } from "../context/cartContext";
 import { BuyerForm } from "../pages/buyerform/buyerform";
+import { ItemDetail } from "../components/shop/items/ItemList/ItemDetail/ItemDetail";
 
 const Router = () => {
   return (
@@ -20,7 +21,7 @@ const Router = () => {
           <Route exact path="/" component={Main} />
           <Route path="/aboutUs" component={AboutUs} />
           <Route path="/category/:id" component={ItemListContainer} />
-          <Route path="/products/:id" component={ItemDetailContainer} />
+          <Route path="/products/:id" component={ItemDetail} />
           <Route path="/cart" component={Cart} />
           <Route path="/shopform" component={BuyerForm} />
           <Route path="*" component={NotFound} />

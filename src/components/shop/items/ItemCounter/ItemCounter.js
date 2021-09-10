@@ -1,20 +1,14 @@
-import { useState } from "react";
-import { Link } from "react-router-dom";
 import "./ItemCounter.scss";
 
-function ItemCount({ stock, initial, onAdd }) {
-  const [counter, setCounter] = useState(initial);
-
-  const decrease = () => {
-    if (counter > initial) {
-      setCounter(counter - 1);
-    }
+function ItemCount({ counter, from, setCounter, to }) {
+  const increase = () => {
+    if (to === counter) return;
+    setCounter(counter + 1);
   };
 
-  const increase = () => {
-    if (counter < stock) {
-      setCounter(counter + 1);
-    }
+  const decrease = () => {
+    if (from === counter) return;
+    setCounter(counter - 1);
   };
 
   return (
@@ -31,9 +25,6 @@ function ItemCount({ stock, initial, onAdd }) {
             +{" "}
           </button>
         </div>
-        <Link className="finishShopping" onClick={() => onAdd(counter)}>
-          ¡Añadir al carrito 🛒!
-        </Link>
       </div>
     </>
   );
