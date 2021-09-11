@@ -3,6 +3,7 @@ import { CartContext } from "../../context/cartContext";
 import trash from "../../assets/trash.png";
 import "./cart.scss";
 import sad from "../../assets/not-found.png";
+import { getFirestore } from "../../fireBase";
 
 export const Cart = () => {
   const { items } = useContext(CartContext);
@@ -20,8 +21,28 @@ export const Cart = () => {
     }
   }, [items]);
 
-  const calculatePrice = (price, qty) => {
-    return price * qty;
+  const handleFinishPurchase = () => {
+    const newItems = items.map(({ item, quantity }) => ({
+      item: {
+        id: item.id,
+        title: item.title,
+        price: item.price,
+      },
+      quantity,
+    }));
+    console.log("newItems", newItems);
+    const newOrder = {
+      buyer: {
+        name: "Jose Luis Koller",
+        phone: "2995763898",
+        email: "leo@leo.com",
+      },
+      items: newItems,
+      total,
+    };
+    const db = getFirestore();
+    const orders = db.collection("orders");
+    const batch = db.batch();
   };
 
   return (
