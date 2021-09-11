@@ -5,6 +5,7 @@ import { getFirestore } from "../../../../../fireBase";
 import { useParams } from "react-router";
 import ItemCount from "../../ItemCounter/ItemCounter";
 import "./ItemDetail.scss";
+import Loading from "../../../../loading/loading";
 
 const FROM = 1;
 
@@ -12,11 +13,11 @@ export const ItemDetail = () => {
   const [qty, setQty] = useState(1);
   const { id } = useParams();
   const [finisher, setFinisher] = useState(false);
-  const { addProduct, items } = useContext(CartContext);
+  const { addItem, items } = useContext(CartContext);
   const [item, setItem] = useState(null);
 
   const handleItemToCart = () => {
-    addProduct({ item, qty });
+    addItem({ item, qty });
   };
 
   useEffect(() => {
@@ -41,15 +42,17 @@ export const ItemDetail = () => {
     }
   }, [items, item]);
 
+  if (!item) return <Loading />;
+
   return (
     <div className="itemDetailWrapper">
-      <img src={product.image} alt="Imagen del Producto" className="itemImg" />
+      <img src={item.image} alt="Imagen del Producto" className="itemImg" />
       <div className="itemProps">
-        <h2 className="itemTitle">{product.title}</h2>
-        <p className="itemDescription">{product.description}</p>
+        <h2 className="itemTitle">{item.title}</h2>
+        <p className="itemDescription">{item.description}</p>
         <div className="counterPriceBox">
           <div className="counterPriceContainer">
-            <p className="itemPrice">$ {product.price}</p>
+            <p className="itemPrice">$ {item.price}</p>
             <ItemCount
               counter={qty}
               from={FROM}
@@ -59,11 +62,9 @@ export const ItemDetail = () => {
           </div>
         </div>
       </div>
-      {finisher ? (
-        <Link className="goCart" to="/cart" onClick={handleItemToCart}>
-          ¡Ir al carrito 🛒!
-        </Link>
-      ) : null}
+      <button disabled={finisher} onClick={handleItemToCart}>
+        ¡Agregar al carrito 🛒!
+      </button>
       <Link className="goBack" to="/" onClick={() => setQty(0)}>
         Volver a la tienda!
       </Link>

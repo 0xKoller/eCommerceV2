@@ -1,11 +1,24 @@
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import { CartContext } from "../../context/cartContext";
 import trash from "../../assets/trash.png";
 import "./cart.scss";
 import sad from "../../assets/not-found.png";
 
 export const Cart = () => {
-  const { cart, removeProduct } = useContext(CartContext);
+  const { items } = useContext(CartContext);
+
+  const [total, setTotal] = useState(0);
+  const [orderCreatedId, setOrderCreatedId] = useState(null);
+
+  useEffect(() => {
+    if (items.length > 0) {
+      let currentTotal = 0;
+      items.forEach(({ item, quantity }) => {
+        currentTotal += item.price * quantity;
+      });
+      setTotal(currentTotal);
+    }
+  }, [items]);
 
   const calculatePrice = (price, qty) => {
     return price * qty;
