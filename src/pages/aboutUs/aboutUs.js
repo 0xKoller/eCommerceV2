@@ -62,7 +62,6 @@ function AboutUs() {
           src="https://media2.giphy.com/media/JRlqKEzTDKci5JPcaL/giphy.gif?cid=ecf05e47uhq12bobvgt9juz4eb06knfisirr5eozj490byr3&rid=giphy.gif&ct=g"
           alt="Gif de Naruto"
         />
-
         <div className="fullPageGif">
           <img
             src="https://c.tenor.com/tuMRVPb3AFIAAAAC/jujutsu-kaisen-gojo-satoru.gif"

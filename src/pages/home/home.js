@@ -16,13 +16,8 @@ function Main() {
           </h5>
         </div>
       </div>
-      <div id="gridShop">
-        <div className="filters">
-          <FilterCategories />
-        </div>
-        <div className="items">
-          <ItemListContainer />
-        </div>
+      <div className="items">
+        <ItemListContainer />
       </div>
     </main>
   );

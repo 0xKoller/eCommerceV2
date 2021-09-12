@@ -26,7 +26,48 @@ function ItemListContainer() {
       .catch((err) => alert(err))
       .finally(() => setIsLoading(false));
   }, []);
-  return <>{isLoading ? <Loading /> : <ItemList productos={products} />}</>;
+  return (
+    <>
+      {isLoading ? (
+        <Loading />
+      ) : (
+        <div>
+          <div className="filters">
+            <div className="categoryFilter">
+              <label for="type">Categorias:</label>
+              <div className="categoryOptions">
+                <span>Accesorios</span>
+                <input type="radio" value="accesories" name="type" id="type" />
+                <span>Indumentaria</span>
+                <input
+                  type="radio"
+                  value="indumentaria"
+                  name="type"
+                  id="type"
+                />
+                <span>Colecionables</span>
+                <input
+                  type="radio"
+                  value="collectibles"
+                  name="type"
+                  id="type"
+                />
+                <span>Manga</span>
+                <input type="radio" value="manga" name="type" id="type" />
+              </div>
+            </div>
+            <div className="priceFilter">
+              <label for="prices">Precio</label>
+              <input type="number" name="prices" id="minPrice" />
+
+              <input type="number" name="prices" id="maxPrice" />
+            </div>
+          </div>
+          <ItemList productos={products} />
+        </div>
+      )}
+    </>
+  );
 }
 
 export default ItemListContainer;
