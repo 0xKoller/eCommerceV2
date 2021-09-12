@@ -10,14 +10,14 @@ import Loading from "../../../../loading/loading";
 const FROM = 1;
 
 export const ItemDetail = () => {
-  const [qty, setQty] = useState(1);
+  const [quantity, setQuantity] = useState(1);
   const { id } = useParams();
   const [finisher, setFinisher] = useState(false);
   const { addItem, items } = useContext(CartContext);
   const [item, setItem] = useState(null);
 
   const handleItemToCart = () => {
-    addItem({ item, qty });
+    addItem({ item, quantity });
   };
 
   useEffect(() => {
@@ -54,18 +54,18 @@ export const ItemDetail = () => {
           <div className="counterPriceContainer">
             <p className="itemPrice">$ {item.price}</p>
             <ItemCount
-              counter={qty}
+              counter={quantity}
               from={FROM}
-              setCounter={setQty}
+              setCounter={setQuantity}
               to={item.stock}
             />
           </div>
         </div>
       </div>
-      <button disabled={finisher} onClick={handleItemToCart}>
+      <button className="goCart" disabled={finisher} onClick={handleItemToCart}>
         ¡Agregar al carrito 🛒!
       </button>
-      <Link className="goBack" to="/" onClick={() => setQty(0)}>
+      <Link className="goBack" to="/" onClick={() => setQuantity(0)}>
         Volver a la tienda!
       </Link>
     </div>

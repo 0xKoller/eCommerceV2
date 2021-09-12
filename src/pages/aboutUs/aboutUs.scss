@@ -1,12 +1,83 @@
-#aboutUs {
+.aboutUs {
   display: flex;
-  align-items: center;
-  justify-content: center;
   flex-direction: column;
-  margin: auto 0;
+  .gifs {
+    display: flex;
+    justify-content: space-evenly;
+    .fullPageGif {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      img {
+        width: 100%;
+      }
+    }
+    img {
+      margin: 0.2rem;
+      width: 50%;
+      border-radius: 1em;
+    }
+  }
 }
 
-#video {
+.display {
   display: flex;
-  justify-content: center;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin: 2em;
+  .usText {
+    text-align: justify;
+    margin-left: 1rem;
+    margin-right: 1rem;
+  }
+  .video {
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+  }
+}
+
+.logoMobile {
+  display: none;
+}
+
+@media (max-width: 1600px) {
+  .gifs {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    .fullPageGif {
+      display: none;
+    }
+  }
+}
+
+@media (max-width: 1020px) {
+  .display {
+    flex-direction: column;
+  }
+}
+
+@media screen and (max-width: 590px) {
+  .gifs {
+    img {
+      display: none;
+    }
+  }
+  .display {
+    display: flex;
+    flex-direction: column;
+  }
+  .video {
+    display: none;
+  }
+  .logoMobile {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    img {
+      width: 50%;
+    }
+  }
 }

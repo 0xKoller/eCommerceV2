@@ -11,8 +11,14 @@ export const CartProvider = ({ children }) => {
     setItems(newItems);
   };
 
-  const removeProduct = () => {
-    setItems([]);
+  const removeProduct = (id) => {
+    let newItems = [];
+    for (let i = 0; i < items.length; i++) {
+      if (items[i].item.id !== id) {
+        newItems.push(items[i]);
+      }
+    }
+    setItems([...newItems]);
   };
 
   return (
