@@ -1,11 +1,10 @@
 import { useContext, useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { useParams, useHistory } from "react-router";
 import { CartContext } from "../../../../../context/cartContext";
 import { getFirestore } from "../../../../../fireBase";
-import { useParams } from "react-router";
 import ItemCount from "../../ItemCounter/ItemCounter";
-import "./ItemDetail.scss";
 import Loading from "../../../../loading/loading";
+import "./ItemDetail.scss";
 
 const FROM = 1;
 
@@ -15,6 +14,7 @@ export const ItemDetail = () => {
   const [finisher, setFinisher] = useState(false);
   const { addItem, items } = useContext(CartContext);
   const [item, setItem] = useState(null);
+  const history = useHistory();
 
   const handleItemToCart = () => {
     addItem({ item, quantity });
@@ -65,9 +65,9 @@ export const ItemDetail = () => {
       <button className="goCart" disabled={finisher} onClick={handleItemToCart}>
         ¡Agregar al carrito 🛒!
       </button>
-      <Link className="goBack" to="/" onClick={() => setQuantity(0)}>
-        Volver a la tienda!
-      </Link>
+      <button className="goBack" onClick={() => history.goBack()}>
+        Volver atras!
+      </button>
     </div>
   );
 };

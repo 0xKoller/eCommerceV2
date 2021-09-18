@@ -2,10 +2,12 @@ import { useEffect, useState } from "react";
 import { ItemList } from "./ItemList";
 import Loading from "../../../loading/loading";
 import { getFirestore } from "../../../../fireBase/index";
+import NotFound from "../../../../pages/notFound/notFound";
 
 function ItemListContainer() {
   const [products, setProducts] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
+  const [filter, setFilter] = useState(null);
 
   useEffect(() => {
     setIsLoading(true);
@@ -22,10 +24,27 @@ function ItemListContainer() {
             return { id: doc.id, ...doc.data() };
           })
         );
+        setFilter(
+          querySnapshot.docs.map((doc) => {
+            return { id: doc.id, ...doc.data() };
+          })
+        );
       })
       .catch((err) => alert(err))
       .finally(() => setIsLoading(false));
   }, []);
+
+  const filterItems = (option) => {
+    if (option) {
+      const test = filter.filter((item) => {
+        return item.categoryName === option;
+      });
+      setProducts(test);
+    } else {
+      console.log("No hay filtro");
+    }
+  };
+
   return (
     <>
       {isLoading ? (
@@ -34,33 +53,41 @@ function ItemListContainer() {
         <div>
           <div className="filters">
             <div className="categoryFilter">
-              <label for="type">Categorias:</label>
+              <label>Categorias:</label>
               <div className="categoryOptions">
                 <span>Accesorios</span>
-                <input type="radio" value="accesories" name="type" id="type" />
+                <input
+                  type="radio"
+                  value="Accesories"
+                  name="type"
+                  id="type"
+                  onClick={() => filterItems("Accesories")}
+                />
                 <span>Indumentaria</span>
                 <input
                   type="radio"
-                  value="indumentaria"
+                  value="Indumentaria"
                   name="type"
                   id="type"
+                  onClick={() => filterItems("Indumentaria")}
                 />
                 <span>Colecionables</span>
                 <input
                   type="radio"
-                  value="collectibles"
+                  value="Collectibles"
                   name="type"
                   id="type"
+                  onClick={() => filterItems("Collectibles")}
                 />
                 <span>Manga</span>
-                <input type="radio" value="manga" name="type" id="type" />
+                <input
+                  type="radio"
+                  value="manga"
+                  name="type"
+                  id="type"
+                  onClick={() => filterItems("Manga")}
+                />
               </div>
-            </div>
-            <div className="priceFilter">
-              <label for="prices">Precio</label>
-              <input type="number" name="prices" id="minPrice" />
-
-              <input type="number" name="prices" id="maxPrice" />
             </div>
           </div>
           <ItemList productos={products} />

@@ -42,18 +42,20 @@
   display: none;
 }
 
-@media (max-width: 1600px) {
+@media screen and (max-width: 1600px) {
   .gifs {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    .fullPageGif {
+  }
+  .fullPageGif {
+    img {
       display: none;
     }
   }
 }
 
-@media (max-width: 1020px) {
+@media screen and (max-width: 1020px) {
   .display {
     flex-direction: column;
   }

@@ -5,7 +5,7 @@ function AboutUs() {
   return (
     <main className="aboutUs">
       <div className="logoMobile">
-        <img src={logo} />
+        <img src={logo} alt="Logo del comercio" />
       </div>
       <div className="gifs">
         <div className="fullPageGif">

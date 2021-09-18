@@ -12,7 +12,7 @@ import { NavLink } from "react-router-dom";
 import "./navBar.scss";
 import logo from "../../assets/wall-rose.png";
 
-function NavBar() {
+const NavBar = () => {
   return (
     <header>
       <Navbar bg="light" expand="lg">
@@ -29,39 +29,37 @@ function NavBar() {
               <NavLink to="/" className="link">
                 Home
               </NavLink>
-              <NavLink to="*" className="link">
-                Ofertas
-              </NavLink>
               <NavDropdown title="Categorias" id="basic-nav-dropdown">
                 <NavDropdown.Item>
-                  <NavLink to="*" className="link">
+                  <NavLink
+                    to="/categories/IzqZt1KzR3YNauCQzDMM"
+                    className="link"
+                  >
                     Accesorios
                   </NavLink>
                 </NavDropdown.Item>
                 <NavDropdown.Item>
-                  <NavLink to="*" className="link">
-                    Remeras
+                  <NavLink
+                    to="/categories/2Uc6U9BD6lAwxb71TzxU"
+                    className="link"
+                  >
+                    Indumentaria
                   </NavLink>
                 </NavDropdown.Item>
                 <NavDropdown.Item>
-                  <NavLink to="*" className="link">
-                    Pantalones
+                  <NavLink
+                    to="/categories/byOMr4qdb9rfzCY3zgBL"
+                    className="link"
+                  >
+                    Colleccionables
                   </NavLink>
                 </NavDropdown.Item>
                 <NavDropdown.Item>
-                  <NavLink to="*" className="link">
-                    Camperas
-                  </NavLink>
-                </NavDropdown.Item>
-                <NavDropdown.Item>
-                  <NavLink to="*" className="link">
-                    Hoodies
-                  </NavLink>
-                </NavDropdown.Item>
-                <NavDropdown.Divider></NavDropdown.Divider>
-                <NavDropdown.Item>
-                  <NavLink to="*" className="link">
-                    Anime
+                  <NavLink
+                    to="/categories/NPwa71BImXu2d4VTRNI0"
+                    className="link"
+                  >
+                    Manga
                   </NavLink>
                 </NavDropdown.Item>
               </NavDropdown>
@@ -75,6 +73,6 @@ function NavBar() {
       </Navbar>
     </header>
   );
-}
+};
 
 export default NavBar;

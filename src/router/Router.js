@@ -7,7 +7,6 @@ import AboutUs from "../pages/aboutUs/aboutUs";
 import NotFound from "../pages/notFound/notFound";
 import { Cart } from "../pages/cart/cart";
 import { CartProvider } from "../context/cartContext";
-import { BuyerForm } from "../pages/buyerform/buyerform";
 import { ItemDetail } from "../components/shop/items/ItemList/ItemDetail/ItemDetail";
 import Categories from "../components/categories/categories";
 
@@ -22,7 +21,6 @@ const Router = () => {
           <Route path="/categories/:categoryId" component={Categories} />
           <Route path="/products/:id" component={ItemDetail} />
           <Route path="/cart" component={Cart} />
-          <Route path="/shopform" component={BuyerForm} />
           <Route path="*" component={NotFound} />
         </Switch>
         <Footer />
