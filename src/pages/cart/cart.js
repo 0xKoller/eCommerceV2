@@ -10,9 +10,10 @@ export const Cart = () => {
   const { items, removeProduct } = useContext(CartContext);
   const [total, setTotal] = useState(0);
   const [orderCreatedId, setOrderCreatedId] = useState(null);
-  const [userName, setUserName] = useState("");
-  const [userLastName, setUserLastName] = useState("");
-  const [userContact, setUserContact] = useState("");
+  const [userName, setUserName] = useState(null);
+  const [userLastName, setUserLastName] = useState(null);
+  const [userContact, setUserContact] = useState(null);
+  const [finisher, setFinisher] = useState(true);
 
   useEffect(() => {
     if (items.length > 0) {
@@ -25,8 +26,12 @@ export const Cart = () => {
   }, [items]);
 
   useEffect(() => {
-    console.log(userName);
-  }, [userName]);
+    if (userName && userLastName && userContact) {
+      setFinisher(false);
+    } else {
+      setFinisher(true);
+    }
+  }, [userName, userLastName, userContact]);
 
   const handleDeleteItem = (id) => {
     removeProduct(id);
@@ -44,9 +49,9 @@ export const Cart = () => {
     console.log("newItems", newItems);
     const newOrder = {
       buyer: {
-        name: "Jose Luis Koller",
-        phone: "2995763898",
-        email: "leo@leo.com",
+        name: userName,
+        lastName: userLastName,
+        phone: userContact,
       },
       items: newItems,
       total,
@@ -86,7 +91,7 @@ export const Cart = () => {
       <h1>Cart</h1>
       <div className="data">
         <div className="buyer">
-          <form>
+          <form className="userData">
             <div className="NyA">
               <label>Nombre: </label>
               <input
@@ -98,16 +103,15 @@ export const Cart = () => {
               <input
                 placeholder="Sanchez"
                 value={userLastName}
-                onInput={(e) => userLastName(e.target.value)}
+                onInput={(e) => setUserLastName(e.target.value)}
               />
             </div>
-
             <div className="contact">
               <label> Telefono:</label>
               <input
                 placeholder="29911111111"
                 value={userContact}
-                onInput={(e) => userContact(e.target.value)}
+                onInput={(e) => setUserContact(e.target.value)}
               ></input>
             </div>
           </form>
@@ -141,7 +145,7 @@ export const Cart = () => {
                       prefix={"$"}
                     />
                   </h2>
-                  <button onClick={handleFinishPurchase}>
+                  <button onClick={handleFinishPurchase} disabled={finisher}>
                     Finalizar compra
                   </button>
                 </Fragment>

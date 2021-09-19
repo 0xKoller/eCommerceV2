@@ -60,4 +60,27 @@
 .data {
   display: flex;
   flex-direction: row;
+  justify-content: space-evenly;
+  margin-left: 10vh;
+  margin-right: 10vh;
+  input {
+    margin-top: 0.5vh;
+    margin-bottom: 1.5vh;
+  }
+}
+
+.NyA {
+  display: flex;
+  flex-direction: column;
+}
+
+.contact {
+  display: flex;
+  flex-direction: column;
+}
+
+@media (max-width: 700px) {
+  .data {
+    flex-direction: column;
+  }
 }

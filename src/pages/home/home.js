@@ -1,4 +1,3 @@
-import FilterCategories from "../../components/shop/filter/filter";
 import ItemListContainer from "../../components/shop/items/ItemList/ItemListContainer";
 import "./body.scss";
 import test from "../../assets/test.png";

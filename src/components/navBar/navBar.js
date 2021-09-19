@@ -16,16 +16,18 @@ const NavBar = () => {
   return (
     <header>
       <Navbar bg="light" expand="lg">
-        <Container>
+        <Container className="navBar">
           <NavbarBrand>
-            <Image src={logo} className="d-none d-sm-block" rounded />
-            <NavLink to="/" className="link">
-              Trost Shop
-            </NavLink>
+            <div className="branding">
+              <Image src={logo} className="d-none d-sm-block" rounded />
+              <NavLink to="/" className="link">
+                Trost Shop
+              </NavLink>
+            </div>
           </NavbarBrand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
-            <Nav className="me-auto">
+            <Nav className="me-auto links">
               <NavLink to="/" className="link">
                 Home
               </NavLink>
@@ -68,7 +70,9 @@ const NavBar = () => {
               </NavLink>
             </Nav>
           </Navbar.Collapse>
+
           <Cart />
+          {/* Poner aca el CART cuando termines de arreglar la burger */}
         </Container>
       </Navbar>
     </header>

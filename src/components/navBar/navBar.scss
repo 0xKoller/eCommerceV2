@@ -19,7 +19,7 @@ img {
   height: auto;
 }
 
-.navbar-brand {
+.branding {
   display: flex;
   flex-direction: row;
 }
@@ -29,4 +29,9 @@ img {
   &:hover {
     color: gray;
   }
+}
+.navBar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
 }

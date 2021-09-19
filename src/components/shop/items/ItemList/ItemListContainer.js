@@ -2,8 +2,7 @@ import { useEffect, useState } from "react";
 import { ItemList } from "./ItemList";
 import Loading from "../../../loading/loading";
 import { getFirestore } from "../../../../fireBase/index";
-import NotFound from "../../../../pages/notFound/notFound";
-
+import "./ItemListContainer.scss";
 function ItemListContainer() {
   const [products, setProducts] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
@@ -51,11 +50,11 @@ function ItemListContainer() {
         <Loading />
       ) : (
         <div>
-          <div className="filters">
-            <div className="categoryFilter">
-              <label>Categorias:</label>
-              <div className="categoryOptions">
-                <span>Accesorios</span>
+          <div className="categoryFilter">
+            <label>Categorias</label>
+            <div className="categoryOptions">
+              <div>
+                Accesorios
                 <input
                   type="radio"
                   value="Accesories"
@@ -63,7 +62,9 @@ function ItemListContainer() {
                   id="type"
                   onClick={() => filterItems("Accesories")}
                 />
-                <span>Indumentaria</span>
+              </div>
+              <div>
+                Indumentaria
                 <input
                   type="radio"
                   value="Indumentaria"
@@ -71,7 +72,9 @@ function ItemListContainer() {
                   id="type"
                   onClick={() => filterItems("Indumentaria")}
                 />
-                <span>Colecionables</span>
+              </div>
+              <div>
+                Colecionables
                 <input
                   type="radio"
                   value="Collectibles"
@@ -79,7 +82,9 @@ function ItemListContainer() {
                   id="type"
                   onClick={() => filterItems("Collectibles")}
                 />
-                <span>Manga</span>
+              </div>
+              <div>
+                Manga
                 <input
                   type="radio"
                   value="manga"
@@ -90,6 +95,7 @@ function ItemListContainer() {
               </div>
             </div>
           </div>
+
           <ItemList productos={products} />
         </div>
       )}
