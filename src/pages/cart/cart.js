@@ -1,20 +1,27 @@
 import React, { Fragment, useContext, useEffect, useState } from "react";
-import { CartContext } from "../../context/cartContext";
 import NumberFormat from "react-number-format";
-import trash from "../../assets/trash.png";
-import "./cart.scss";
-import sad from "../../assets/not-found.png";
+import { Link } from "react-router-dom";
+import { CartContext } from "../../context/cartContext";
 import { getFirestore } from "../../fireBase";
+import "./cart.scss";
+
+// Import de imagenes
+import trash from "../../assets/trash.png";
+import sad from "../../assets/not-found.png";
+import deku from "../../assets/deku.png";
+import allmight from "../../assets/allMight.webp";
 
 export const Cart = () => {
-  const { items, removeProduct } = useContext(CartContext);
+  const { items, removeProduct, removeAll } = useContext(CartContext);
   const [total, setTotal] = useState(0);
   const [orderCreatedId, setOrderCreatedId] = useState(null);
   const [userName, setUserName] = useState(null);
   const [userLastName, setUserLastName] = useState(null);
   const [userContact, setUserContact] = useState(null);
   const [finisher, setFinisher] = useState(true);
+  const [update, setUpdate] = useState(false);
 
+  // Calculo el total segun la cantidad de productos
   useEffect(() => {
     if (items.length > 0) {
       let currentTotal = 0;
@@ -25,18 +32,26 @@ export const Cart = () => {
     }
   }, [items]);
 
+  // En este useEffect implemento una verificacion que los datos para habilitar el finalizar compra
   useEffect(() => {
-    if (userName && userLastName && userContact) {
-      setFinisher(false);
+    // eslint-disable-next-line
+    if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(userContact)) {
+      if (userName && userLastName) {
+        setFinisher(false);
+      } else {
+        setFinisher(true);
+      }
     } else {
       setFinisher(true);
     }
   }, [userName, userLastName, userContact]);
 
+  // Eliminar producto
   const handleDeleteItem = (id) => {
     removeProduct(id);
   };
 
+  // Handle de la carga de datos a firebase y resto de logica
   const handleFinishPurchase = () => {
     const newItems = items.map(({ item, quantity }) => ({
       item: {
@@ -70,9 +85,31 @@ export const Cart = () => {
         batch.commit();
         setOrderCreatedId(response.id);
       })
-      .catch((error) => console.log(error()));
+      .catch((error) => console.log(error()))
+      .finally(() => {
+        setUpdate(true);
+        removeAll();
+      });
   };
 
+  // Compra Finalizada
+  if (update) {
+    return (
+      <div className="orderSuccesfull">
+        <img src={deku} alt="Deku Feliz" />
+        <h1>¡Felicidades!</h1>
+        <p>
+          Su orden de compra es la siguiente: <strong>{orderCreatedId}</strong>
+        </p>
+        <img src={allmight} alt="All might observandote" />
+        <Link to="/" className="goBack">
+          ¿Volemos a la tienda? 🤔
+        </Link>
+      </div>
+    );
+  }
+
+  // Verifico si el carrito no tiene items
   if (items.length === 0) {
     return (
       <div className="noItems">
@@ -86,6 +123,7 @@ export const Cart = () => {
     );
   }
 
+  // Panel de compra
   return (
     <div className="cartPanel">
       <h1>Cart</h1>
@@ -107,9 +145,10 @@ export const Cart = () => {
               />
             </div>
             <div className="contact">
-              <label> Telefono:</label>
+              <label> Email:</label>
               <input
-                placeholder="29911111111"
+                placeholder="pepito@gmail.com"
+                type="email"
                 value={userContact}
                 onInput={(e) => setUserContact(e.target.value)}
               ></input>

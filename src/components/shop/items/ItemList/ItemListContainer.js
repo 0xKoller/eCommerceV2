@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
 import { ItemList } from "./ItemList";
-import Loading from "../../../loading/loading";
 import { getFirestore } from "../../../../fireBase/index";
 import "./ItemListContainer.scss";
+import Loading from "../../../loading/loading";
+
 function ItemListContainer() {
   const [products, setProducts] = useState([]);
   const [isLoading, setIsLoading] = useState(false);

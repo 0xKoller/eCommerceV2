@@ -7,9 +7,11 @@ import {
   NavbarBrand,
   Image,
 } from "react-bootstrap";
-import Cart from "./cartWidget";
 import { NavLink } from "react-router-dom";
+import Cart from "./cartWidget";
 import "./navBar.scss";
+
+// Import de imagenes
 import logo from "../../assets/wall-rose.png";
 
 const NavBar = () => {

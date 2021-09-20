@@ -84,3 +84,19 @@
     flex-direction: column;
   }
 }
+
+.orderSuccesfull {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin: 5vh;
+  img {
+    width: 20vh;
+  }
+  .goBack {
+    margin: 2vh;
+    min-width: 30vh;
+  }
+}

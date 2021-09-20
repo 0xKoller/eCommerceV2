@@ -1,12 +1,14 @@
 import ItemListContainer from "../../components/shop/items/ItemList/ItemListContainer";
 import "./body.scss";
-import test from "../../assets/test.png";
+
+// Import de imagenes
+import landingImg from "../../assets/test.png";
 
 function Main() {
   return (
     <main>
       <div id="landingContainer">
-        <img src={test} id="landingImg" alt="Mikasa vs Reiner" />
+        <img src={landingImg} id="landingImg" alt="Mikasa vs Reiner" />
         <div className="bottom-left">
           <h1>La muralla de Trost abrio sus puertas...</h1>
           <h5 className="welcome">
