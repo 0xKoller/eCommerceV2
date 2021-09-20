@@ -8,7 +8,7 @@ import NotFound from "../pages/notFound/notFound";
 import { Cart } from "../pages/cart/cart";
 import { CartProvider } from "../context/cartContext";
 import { ItemDetail } from "../components/shop/items/ItemList/ItemDetail/ItemDetail";
-import { Categorie } from "../pages/categories/categories";
+import { Categories } from "../pages/categories/categories";
 
 const Router = () => {
   return (
@@ -20,7 +20,7 @@ const Router = () => {
           <Route path="/aboutUs" component={AboutUs} />
           <Route path="/products/:id" component={ItemDetail} />
           <Route path="/cart" component={Cart} />
-          <Route path="/category/:categoryId" component={Categorie} />
+          <Route path="/categories/:categoryId" component={Categories} />
           <Route path="*" component={NotFound} />
         </Switch>
         <Footer />
