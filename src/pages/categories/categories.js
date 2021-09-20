@@ -43,12 +43,14 @@ export const Categories = () => {
       })
       .catch((error) => {
         console.log("Error getting documents: ", error);
-      });
+      })
+      .finally(setIsLoading(true));
   }, [categoryId]);
 
   if (products < 1) {
     return <Loading />;
   }
+
   return (
     <div>
       <ItemList productos={products} />
