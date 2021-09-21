@@ -39,7 +39,8 @@ Si ves algun error, intenta solucionarlo con el sigueinte comando, ya que tal ve
 
 ## Demo
 
-<video src="./src/assets/demo-eCommerceAnime.mp4" />
+https://user-images.githubusercontent.com/43190920/134101988-f1bc5d78-a3cc-4f2d-b4e8-b841fef35fa0.mp4
+
 
 ## Contacto
 
