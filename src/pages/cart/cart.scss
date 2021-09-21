@@ -1,3 +1,19 @@
+.noItems {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  padding: 2vh;
+  img {
+    height: 400px;
+    width: auto;
+  }
+}
+
+.trash {
+  width: 1.5em;
+}
+
 .cartPanel {
   display: block;
   margin: 1em;
@@ -6,28 +22,11 @@
   }
 }
 
-.noItems {
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  align-items: center;
-}
-
-.noItemsImg {
-  height: 400px;
-  width: auto;
-}
-
-.trash {
-  width: 1.5em;
-}
-
 .cartContainer {
   display: flex;
   justify-content: space-around;
   align-items: center;
-  border: 2px black solid;
-  border-radius: 1em;
+  height: 100%;
   ul {
     display: flex;
     align-items: center;
@@ -45,7 +44,10 @@
 .totalAndButton {
   display: flex;
   flex-direction: row;
+  justify-content: center;
+  align-items: center;
   h2 {
+    margin: 0;
     margin-left: 0.5em;
     margin-right: 0.5em;
   }
@@ -79,9 +81,17 @@
   flex-direction: column;
 }
 
-@media (max-width: 700px) {
+.finishButton {
+  border-radius: 1vh;
+}
+
+@media (max-width: 900px) {
   .data {
     flex-direction: column;
+  }
+  .finishButton {
+    width: 10vh;
+    height: 5vh;
   }
 }
 

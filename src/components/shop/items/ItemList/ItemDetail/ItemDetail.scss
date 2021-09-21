@@ -13,15 +13,16 @@
 }
 
 .itemProps {
+  width: 80%;
+  margin: 0.5vh auto 0.5vh auto;
+  padding: 1vh;
   background-color: $background-hint-color;
   border-radius: 1vh;
-  padding: 5px;
-  margin: 5px;
 }
 
 .itemDescription {
-  margin: 5px auto 5px auto;
-  padding: 5px;
+  margin: 0.5vh auto 0.5vh auto;
+  padding: 0.5vh;
 }
 
 .counterPriceBox {
@@ -30,14 +31,23 @@
 }
 
 .counterPriceContainer {
+  width: 50%;
   display: flex;
-  border-radius: 1vh;
   flex-direction: row;
   justify-content: space-around;
   align-items: center;
+  border-radius: 1vh;
   color: white;
   background-color: $accents-faded-color;
-  width: 70%;
+}
+
+@media (max-width: 500px) {
+  .counterPriceContainer {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
 }
 
 .itemPrice {

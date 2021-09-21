@@ -1,7 +1,7 @@
 div.card {
-  margin: 10px 5px 10px 5px;
   display: flex;
   flex-direction: row;
+  margin: 1vh;
   height: 10rem;
   img {
     width: 10rem;
@@ -10,8 +10,8 @@ div.card {
   .cardInfo {
     display: flex;
     flex-direction: column;
-    margin-left: 1em;
     justify-content: flex-start;
+    margin: 1em;
   }
   p {
     overflow: hidden;

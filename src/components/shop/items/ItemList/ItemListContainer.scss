@@ -19,5 +19,21 @@
       margin-left: 0.5vh;
       margin-right: 0.5vh;
     }
+    input {
+      margin-left: 1vh;
+      margin-right: 1vh;
+    }
+  }
+}
+
+@media (max-width: 600px) {
+  .categoryFilter {
+    width: 50%;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    .categoryOptions {
+      flex-direction: column;
+    }
   }
 }

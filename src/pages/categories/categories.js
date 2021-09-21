@@ -3,30 +3,15 @@ import { ItemList } from "../../components/shop/items/ItemList/ItemList";
 import { getFirestore } from "../../fireBase/index";
 import Loading from "../../components/loading/loading";
 import { useParams } from "react-router";
+import { Link } from "react-router-dom";
+import "./categories.scss";
 
 export const Categories = () => {
   const { categoryId } = useParams();
   const [products, setProducts] = useState(null);
-  const [isLoading, setIsLoading] = useState(false);
-  const [categorie, setCategorie] = useState(null);
 
   useEffect(() => {
-    setIsLoading(true);
     const db = getFirestore();
-    const categoriesCollection = db.collection("categories");
-    categoriesCollection
-      .get()
-      .then((querySnapshot) => {
-        if (querySnapshot.size === 0) {
-          console.log("No hay productos!");
-        }
-        setCategorie(
-          querySnapshot.docs.map((doc) => {
-            return { id: doc.id, ...doc.data() };
-          })
-        );
-      })
-      .catch((err) => alert(err));
     const itemsCollection = db.collection("items");
     itemsCollection
       .where("categoryId", "==", `${categoryId}`)
@@ -43,12 +28,24 @@ export const Categories = () => {
       })
       .catch((error) => {
         console.log("Error getting documents: ", error);
-      })
-      .finally(setIsLoading(true));
+      });
   }, [categoryId]);
 
   if (products < 1) {
-    return <Loading />;
+    return (
+      <>
+        <Loading />
+        <div className="sasukeThinking">
+          <p>
+            Si Sasuke no deja de pensar es que no logro encontrar lo que
+            buscabas, te invitamos a que vuelvas a la pagina principal!
+          </p>
+          <Link to="/" className="goBack">
+            ¡Volver a la pagina principal!
+          </Link>
+        </div>
+      </>
+    );
   }
 
   return (

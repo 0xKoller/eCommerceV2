@@ -171,26 +171,30 @@ export const Cart = () => {
               ))}
             </ul>
           </div>
-          <div className="totalAndButtonPosition">
-            <div className="totalAndButton">
-              {items.length > 0 && (
-                <Fragment>
-                  <h2>
-                    Total:{" "}
-                    <NumberFormat
-                      value={total}
-                      displayType={"text"}
-                      thousandSeparator={true}
-                      prefix={"$"}
-                    />
-                  </h2>
-                  <button onClick={handleFinishPurchase} disabled={finisher}>
-                    Finalizar compra
-                  </button>
-                </Fragment>
-              )}
-            </div>
-          </div>
+        </div>
+      </div>
+      <div className="totalAndButtonPosition">
+        <div className="totalAndButton">
+          {items.length > 0 && (
+            <Fragment>
+              <h2>
+                Total:{" "}
+                <NumberFormat
+                  value={total}
+                  displayType={"text"}
+                  thousandSeparator={true}
+                  prefix={"$"}
+                />
+              </h2>
+              <button
+                className="finishButton"
+                onClick={handleFinishPurchase}
+                disabled={finisher}
+              >
+                Finalizar compra
+              </button>
+            </Fragment>
+          )}
         </div>
       </div>
     </div>
