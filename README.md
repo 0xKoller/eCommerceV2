@@ -6,6 +6,7 @@ Es una tienda donde vas a encontrar todas los productos referenciados al anime, 
 Esta tienda fue creada con mucho esfuerzo y ♥.
 
 ## Herramientas utilizadas
+
 <p align="center">
 <img src="https://img.shields.io/badge/npm-CB3837?style=for-the-badge&logo=npm&logoColor=white" />  <img src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB" /> <img src="https://img.shields.io/badge/Bootstrap-563D7C?style=for-the-badge&logo=bootstrap&logoColor=white" />  <img src="https://img.shields.io/badge/Sass-CC6699?style=for-the-badge&logo=sass&logoColor=white" />
 </p>
@@ -28,13 +29,20 @@ Si ves algun error, intenta solucionarlo con el sigueinte comando, ya que tal ve
 - [x] Paleta de colores
 - [x] Loading screens
 - [x] Contenedores Fluid
+- [x] Categorias de producto
+- [x] Animaciones
+- [x] Filtro
 
 ## En progreso
-- [ ] Categorias de producto
-- [ ] Animaciones
-- [ ] Filtro
+
+¡Nada en la lista Capitan Erwin!
+
+## Demo
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/jmRA35ls_fg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 ## Contacto
+
 <p  align="center">
 <a href="https://www.linkedin.com/in/joseluiskoller/">
 <img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" /></a>
